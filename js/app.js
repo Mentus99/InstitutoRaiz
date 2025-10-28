@@ -1,10 +1,10 @@
-import { initNavigation } from './navigation.js';
-import { Router } from './router.js';
-// import { initTheme } from './theme.js'; // Descomentar na Atividade 4
+import { initNavigation } from "./navigation.js";
+import { Router } from "./router.js";
+import { initTheme } from "./theme.js";
 
-document.addEventListener('DOMContentLoaded', () => {
-    initNavigation();
-    // initTheme(); // Descomentar na Atividade 4
-    const router = new Router();
-    router.init();
+document.addEventListener("DOMContentLoaded", () => {
+  initNavigation();
+  initTheme();
+  const router = new Router();
+  router.init();
 });
