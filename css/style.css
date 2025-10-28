@@ -150,7 +150,7 @@ header .logo img {
 .main-nav { 
     display: none; 
 }
-.main-nav ul {
+.main-nav > ul {
     list-style: none;
     display: flex;
     gap: var(--space-m);
@@ -184,7 +184,8 @@ header .logo img {
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     box-shadow: var(--box-shadow);
     border: 1px solid #E0E0E0;
-    margin-top: 1px; 
+    margin-top: 1px;
+    list-style: none;
 }
 .submenu li { width: 100%; }
 .submenu li a {
