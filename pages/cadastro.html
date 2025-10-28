@@ -1,72 +1,55 @@
 <div class="container">
     <h1>Participe</h1>
     <p>Seja um voluntário, chef, nutricionista ou parceiro. Sua ajuda é o ingrediente principal da nossa receita de transformação.</p>
-
     <form action="/enviar-cadastro" method="post" id="cadastro-form" class="row" novalidate>
-        
         <div class="col-lg-6">
             <fieldset>
                 <legend>Seus Dados</legend>
-
                 <div class="form-group">
                     <label for="nome">Nome Completo:</label>
                     <input type="text" id="nome" name="nome_completo" required>
                     <span class="form-error-message" aria-live="polite"></span>
                 </div>
-                
                 <div class="form-group">
                     <label for="email">E-mail:</label>
                     <input type="email" id="email" name="email" required placeholder="seuemail@dominio.com">
                     <span class="form-error-message" aria-live="polite"></span>
                 </div>
-                
                 <div class="form-group">
                     <label for="data_nasc">Data de Nascimento:</label>
                     <input type="date" id="data_nasc" name="data_nascimento" required>
                     <span class="form-error-message" aria-live="polite"></span>
                 </div>
-                
                 <div class="form-group">
                     <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" required 
-                           pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" 
-                           placeholder="000.000.000-00">
+                    <input type="text" id="cpf" name="cpf" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00">
                     <span class="form-error-message" aria-live="polite"></span>
                 </div>
-                
                 <div class="form-group">
                     <label for="telefone">Telefone / Celular:</label>
-                    <input type="tel" id="telefone" name="telefone" required 
-                           placeholder="(00) 90000-0000">
+                    <input type="tel" id="telefone" name="telefone" required placeholder="(00) 90000-0000">
                     <span class="form-error-message" aria-live="polite"></span>
                 </div>
             </fieldset>
         </div>
-
         <div class="col-lg-6">
             <fieldset>
                 <legend>Endereço</legend>
-                
                 <div class="form-group">
                     <label for="cep">CEP:</label>
-                    <input type="text" id="cep" name="cep" required 
-                           pattern="\d{5}-\d{3}" 
-                           placeholder="00000-000">
+                    <input type="text" id="cep" name="cep" required pattern="\d{5}-\d{3}" placeholder="00000-000">
                     <span class="form-error-message" aria-live="polite"></span>
                 </div>
-                
                 <div class="form-group">
                     <label for="endereco">Endereço (Rua, N°):</label>
                     <input type="text" id="endereco" name="endereco" required>
                     <span class="form-error-message" aria-live="polite"></span>
                 </div>
-                
                 <div class="form-group">
                     <label for="cidade">Cidade:</label>
                     <input type="text" id="cidade" name="cidade" required>
                     <span class="form-error-message" aria-live="polite"></span>
                 </div>
-                
                 <div class="form-group">
                     <label for="estado">Estado:</label>
                     <input type="text" id="estado" name="estado" required>
@@ -74,7 +57,6 @@
                 </div>
             </fieldset>
         </div>
-        
         <div class="col-md-12">
             <fieldset>
                 <legend>Como você quer ajudar?</legend>
@@ -83,9 +65,16 @@
                     <input type="radio" id="interesse_oficinas" name="interesse" value="oficinas" checked required>
                     <label for="interesse_oficinas">Voluntário (Oficinas e Cozinha)</label>
                 </div>
-                </fieldset>
+                <div class="form-group-radio">
+                    <input type="radio" id="interesse_horta" name="interesse" value="horta" required>
+                    <label for="interesse_horta">Voluntário (Hortas Urbanas)</label>
+                </div>
+                <div class="form-group-radio">
+                    <input type="radio" id="interesse_parceiro" name="interesse" value="parceiro" required>
+                    <label for="interesse_parceiro">Quero ser um Parceiro (Doador de alimentos/recursos)</label>
+                </div>
+            </fieldset>
         </div>
-
         <div class="col-md-12">
             <button type="submit" class="btn btn-primary">Enviar Cadastro</button>
         </div>

@@ -1,135 +1,105 @@
 import { initForm } from './formHandler.js';
 import { initModal, openModal } from './modal.js';
 
-// Informações dos nossos projetos (para o Modal)
+// --- CONTEÚDO DOS PROJETOS (CORRIGIDO) ---
 const projectData = {
     'oficinas': {
+        id: 'oficinas',
         title: 'Oficinas de Culinária Consciente',
-        img: 'https://via.placeholder.com/400x250.png?text=Vegetais+frescos',
         badge: 'Educação',
-        description: 'Aqui vai uma descrição longa e detalhada sobre as oficinas. Ensinamos técnicas de aproveitamento integral (cascas, talos, sementes) para criar pratos nutritivos e deliciosos, reduzindo o desperdício doméstico e promovendo a segurança alimentar.'
+        // Vídeo placeholder anterior (Fort Minor), ou substitua por imagem AI
+        mediaEmbed: '<iframe width="560" height="315" src="https://www.youtube.com/embed/Ryk4MfwMA0k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        // Descrição focada nas oficinas quinzenais
+        description: 'A cada 15 dias, nossas oficinas transformam a relação das pessoas com a comida! Dividimos os participantes em dois grupos focados (controle de diabetes e perda de peso) e ensinamos receitas saudáveis, acessíveis e deliciosas. Exploramos os benefícios e malefícios dos ingredientes no corpo e, o mais importante, mostramos como aproveitar ao máximo o que você já tem em casa, como aveia, cascas e talos. Cozinhar de forma consciente nunca foi tão fácil!',
+        highlights: [
+            "<strong>Frequência:</strong> Oficinas quinzenais.",
+            "<strong>Foco:</strong> Grupos para controle de diabetes e perda de peso.",
+            "<strong>Aprendizado:</strong> Impacto dos ingredientes, receitas acessíveis e aproveitamento integral.",
+            "<strong>Onde:</strong> Na nossa cozinha comunitária."
+        ],
+        buttonText: 'Quero Participar', // Botão ativo
+        buttonLink: '/cadastro',
+        buttonDisabled: false
     },
     'hortas': {
+        id: 'hortas',
         title: 'Hortas Urbanas Comunitárias',
-        img: 'https://via.placeholder.com/400x250.png?text=Horta+Urbana',
         badge: 'Sustentabilidade',
-        description: 'Aqui vai a descrição das hortas. Incentivamos o plantio de alimentos em espaços ociosos da cidade, reconectando as pessoas com a origem da comida e garantindo temperos e hortaliças frescas para a comunidade.'
+        // Vídeo da Horta Comunitária
+        mediaEmbed: '<iframe width="444" height="789" src="https://www.youtube.com/embed/I8H7vA8pjy8" title="Curso Horta Comunitária" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+        // Descrição com base na notícia
+        description: 'Nossas hortas comunitárias são um verdadeiro sucesso entre os moradores! Recentemente, realizamos uma palestra sobre cultivo de alimentos orgânicos em hortas urbanas, reunindo cerca de 60 participantes. No evento, todos aprenderam sobre manejo do solo, formação de mudas, plantio e muito mais, fortalecendo a conexão da comunidade com o alimento saudável.',
+        highlights: [
+            "<strong>Impacto:</strong> Renda para famílias locais e alimento saudável.",
+            "<strong>Metodologia:</strong> Cultivo orgânico com participação ativa dos moradores.",
+            "<strong>Voluntariado:</strong> Mutirões aos sábados abertos a todos!"
+        ],
+        buttonText: 'Seja um Voluntário', // Botão ativo
+        buttonLink: '/cadastro',
+        buttonDisabled: false
     },
     'formacao': {
-        title: 'Formação de Cozinheiros',
-        img: 'https://via.placeholder.com/400x250.png?text=Formação+de+Padeiro',
+        id: 'formacao',
+        title: 'Formação de Cozinheiros - Alimentando Sonhos', // Título atualizado
         badge: 'Capacitação',
-        description: 'Descrição do projeto de formação. Capacitamos jovens e adultos em situação de vulnerabilidade para o mercado de trabalho da gastronomia, usando como base a culinária social e o combate ao desperdício.'
+        // Vídeo do Curso Gratuito (movido para cá)
+        mediaEmbed: '<iframe width="444" height="789" src="https://www.youtube.com/embed/Gkn3AiaZ08g" title="Curso gratuito de Culinária #shorts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+        // Descrição do Curso Gratuito (movida para cá)
+        description: 'A culinária transforma vidas! No Instituto Raiz, através da nossa iniciativa "Casa da Esperança", oferecemos cursos gratuitos como o "Alimentando Sonhos". Ouvir o depoimento inspirador de cada participante mostra que estamos no caminho certo, capacitando profissionais qualificados com foco em gastronomia social e aproveitamento integral.',
+        highlights: [
+            "<strong>Iniciativa:</strong> Casa da Esperança.",
+            "<strong>Curso:</strong> Alimentando Sonhos (Gratuito).",
+            "<strong>Foco:</strong> Capacitação profissional e transformação social.",
+            "<strong>Status Atual:</strong> Turmas completas. Fique atento para a próxima seleção!" // Mantido
+        ],
+        buttonText: 'Turmas Fechadas', // Botão desabilitado
+        buttonLink: '#',
+        buttonDisabled: true          // Mantido desabilitado
     }
 };
 
 export class Router {
     constructor() {
         this.appRoot = document.getElementById('app-root');
-        // Nossa "tabela de tradução" de links para arquivos
-        this.routes = {
-            '/': 'pages/home.html',
-            '/projetos': 'pages/projetos.html',
-            '/cadastro': 'pages/cadastro.html'
-        };
+        this.routes = { '/': 'pages/home.html', '/projetos': 'pages/projetos.html', '/cadastro': 'pages/cadastro.html' };
     }
-
-    // Inicializa o roteador
     init() {
-        // Inicializa o Modal (deixa ele pronto para ser aberto)
-        initModal(projectData);
-        
-        // Ouve cliques em links que têm 'data-link'
+        initModal();
         document.body.addEventListener('click', e => {
             const link = e.target.closest('a[data-link]');
-            if (link) {
-                e.preventDefault(); // Impede o recarregamento
-                const url = link.getAttribute('href');
-                this.navigate(url);
-            }
+            if (link) { e.preventDefault(); this.navigate(link.getAttribute('href')); }
         });
-
-        // Ouve os botões "Voltar/Avançar" do navegador
-        window.addEventListener('popstate', () => {
-            this.loadContent(window.location.pathname, false);
-        });
-
-        // Carrega o conteúdo da página inicial
+        window.addEventListener('popstate', () => { this.loadContent(window.location.pathname, false); });
         this.loadContent(window.location.pathname, true);
     }
-
-    // Navega para uma nova URL
-    navigate(url) {
-        // Atualiza a URL na barra do navegador
-        window.history.pushState(null, null, url);
-        // Carrega o conteúdo
-        this.loadContent(url, false);
-    }
-
-    // Carrega o conteúdo da página
+    navigate(url) { window.history.pushState(null, null, url); this.loadContent(url, false); }
     async loadContent(path, isInitialLoad) {
-        // Pega o caminho (ex: "/projetos") e o hash (ex: "#oficinas")
         const [pathOnly, hash] = path.split('#');
-        
         const templateFile = this.routes[pathOnly] || this.routes['/'];
-
         try {
             const response = await fetch(templateFile);
-            if (!response.ok) throw new Error('Página não encontrada');
-            
+            if (!response.ok) throw new Error(`Página ${templateFile} não encontrada`);
             const html = await response.text();
-            this.appRoot.innerHTML = html; // Injeta o HTML no <main>
-
+            this.appRoot.innerHTML = html;
             this.updateActiveLinks(pathOnly);
-            
-            // --- Lógica Pós-Carregamento ---
-            
-            // Se carregamos a página de cadastro
-            if (pathOnly === '/cadastro') {
-                initForm();
-            }
-            
-            // Se carregamos a página de projetos
-            if (pathOnly === '/projetos') {
-                // Adiciona os "ouvintes" de clique nos cards
-                this.initProjectCardClicks();
-            }
-
-            // Se o link tinha um hash (ex: #oficinas)
-            if (hash) {
-                // Abre o modal correspondente
-                openModal(projectData[hash]);
-            } else if (!isInitialLoad) {
-                 window.scrollTo(0, 0); // Rola para o topo
-            }
-
-        } catch (error) {
-            console.error('Erro ao carregar página:', error);
-            this.appRoot.innerHTML = '<h1>Erro 404: Página não encontrada</h1>';
-        }
+            if (pathOnly === '/cadastro') initForm();
+            if (pathOnly === '/projetos') this.initProjectCardClicks();
+            if (hash && projectData[hash]) openModal(projectData[hash]);
+            else if (!isInitialLoad) window.scrollTo(0, 0);
+        } catch (error) { console.error('Erro ao carregar:', error); this.appRoot.innerHTML = `<h1>Erro: ${error.message}</h1>`; }
     }
-    
-    // Adiciona o clique nos cards da página de projetos
     initProjectCardClicks() {
         this.appRoot.querySelectorAll('.card[data-project-id]').forEach(card => {
-            // Se o clique não foi no botão "desabilitado"
-            if (!card.querySelector('.btn.disabled')) {
-                card.addEventListener('click', (e) => {
-                    const projectId = card.dataset.projectId;
-                    openModal(projectData[projectId]);
-                });
-            }
+            card.addEventListener('click', (e) => {
+                if (e.target.closest('.btn.disabled')) return;
+                const projectId = card.dataset.projectId;
+                if(projectData[projectId]) openModal(projectData[projectId]);
+            });
         });
     }
-
-    // Atualiza qual link está 'ativo' no menu
     updateActiveLinks(path) {
         document.querySelectorAll('nav a').forEach(a => {
-            if (a.getAttribute('href') === path) {
-                a.classList.add('active');
-            } else {
-                a.classList.remove('active');
-            }
+            a.classList.toggle('active', a.getAttribute('href') === path);
         });
     }
 }

@@ -1,53 +1,63 @@
-let overlay = null;
-let modal = null;
-let closeBtn = null;
-let registerLink = null; // <- Variável nova
+let overlay, modal, closeBtn, registerLink, modalMedia, modalTitle, modalBadge, modalDescription, modalHighlights;
 
-// 1. Pega os elementos do HTML e prepara os botões
 export function initModal() {
     overlay = document.getElementById('project-modal-overlay');
     modal = document.getElementById('project-modal');
     closeBtn = document.getElementById('modal-close-btn');
-    
-    // Pega o botão de cadastro de dentro do modal
     registerLink = document.getElementById('modal-register-link');
-    // --- FIM DA LINHA NOVA ---
+    modalMedia = document.getElementById('modal-media');
+    modalTitle = document.getElementById('modal-title');
+    modalBadge = document.getElementById('modal-badge');
+    modalDescription = document.getElementById('modal-description');
+    modalHighlights = document.getElementById('modal-highlights');
 
     if (overlay && closeBtn && registerLink) {
-        // Fecha o modal se clicar no 'X'
         closeBtn.addEventListener('click', closeModal);
-        
-        // Fecha o modal se clicar fora dele (no overlay)
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
-                closeModal();
-            }
-        });
-
-        // Fecha o modal se clicar no link "Quero Participar"
-        registerLink.addEventListener('click', closeModal);
-        // --- FIM DO BLOCO NOVO ---
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+        // O listener do registerLink é adicionado dinamicamente em openModal
     }
 }
 
-// 2. Função para ABRIR o modal e preencher com dados
 export function openModal(project) {
-    if (!overlay || !project) return;
+    if (!overlay || !project || !registerLink) return;
 
-    // Preenche os campos do modal com os dados do projeto
-    document.getElementById('modal-title').textContent = project.title;
-    document.getElementById('modal-img').src = project.img;
-    document.getElementById('modal-img').alt = project.title;
-    document.getElementById('modal-badge').textContent = project.badge;
-    document.getElementById('modal-description').textContent = project.description;
-    
-    // Atualiza o link do botão (se for o caso)
-    // Mostra o modal
+    modalMedia.innerHTML = project.mediaEmbed || '';
+    modalTitle.textContent = project.title || '';
+    modalBadge.textContent = project.badge || '';
+    modalDescription.textContent = project.description || '';
+    modalHighlights.innerHTML = ''; // Limpa destaques antigos
+    if (project.highlights && Array.isArray(project.highlights)) {
+        project.highlights.forEach(item => {
+            const li = document.createElement('li');
+            li.innerHTML = item;
+            modalHighlights.appendChild(li);
+        });
+    }
+
+    registerLink.textContent = project.buttonText || 'Saiba Mais';
+    registerLink.href = project.buttonLink || '#';
+
+    // Remove listener antigo para evitar duplicação
+    registerLink.removeEventListener('click', closeModal);
+
+    if (project.buttonDisabled) {
+        registerLink.classList.add('disabled');
+        registerLink.removeAttribute('data-link');
+        registerLink.setAttribute('aria-disabled', 'true');
+    } else {
+        registerLink.classList.remove('disabled');
+        registerLink.setAttribute('data-link', ''); // Garante que o router pegue
+        registerLink.removeAttribute('aria-disabled');
+        // Adiciona listener para fechar SÓ se o botão NÃO estiver desabilitado
+        registerLink.addEventListener('click', closeModal, { once: true });
+    }
+
     overlay.classList.add('active');
 }
 
-// 3. Função para FECHAR o modal
 function closeModal() {
     if (!overlay) return;
     overlay.classList.remove('active');
+    const iframe = modalMedia.querySelector('iframe');
+    if (iframe) iframe.src = iframe.src;
 }

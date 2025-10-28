@@ -1,11 +1,10 @@
 import { initNavigation } from './navigation.js';
 import { Router } from './router.js';
+// import { initTheme } from './theme.js'; // Descomentar na Atividade 4
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Inicializa o menu
     initNavigation();
-    
-    // 2. Inicializa o Roteador
+    // initTheme(); // Descomentar na Atividade 4
     const router = new Router();
     router.init();
 });
