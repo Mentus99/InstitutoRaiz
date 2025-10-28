@@ -3,82 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instituto Raiz - Início</title>
-    <meta name="description" content="Página inicial do Instituto Raiz, ONG de gastronomia social.">
+    <title>Instituto Raiz - Gastronomia Social</title>
+    <meta name="description" content="Reconectando pessoas ao poder do alimento através da gastronomia social e combate ao desperdício.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+
+<body data-theme="light"> 
 
     <header>
-        <a href="index.html" class="logo">
+        <a href="/" class="logo" data-link>
             <img src="https://via.placeholder.com/150x50.png?text=Instituto+Raiz" alt="Logo do Instituto Raiz">
         </a>
         
         <nav class="main-nav">
             <ul>
-                <li><a href="index.html" class="active">Início</a></li>
+                <li><a href="/" class="active" data-link>Início</a></li>
                 <li class="has-dropdown">
-                    <a href="projetos.html">Projetos</a>
-                    <ul class="submenu">
-                        <li><a href="projetos.html">Oficinas</a></li>
-                        <li><a href="projetos.html">Hortas Urbanas</a></li>
+                    <a href="/projetos" data-link>Projetos</a>
+                    <ul class="submenu" style="list-style: none;">
+                        <li><a href="/projetos#oficinas" data-link>Oficinas</a></li>
+                        <li><a href="/projetos#hortas" data-link>Hortas Urbanas</a></li>
                     </ul>
                 </li>
-                <li><a href="cadastro.html">Participe</a></li>
+                <li><a href="/cadastro" data-link>Participe</a></li>
             </ul>
         </nav>
         
         <nav class="mobile-nav">
              <ul id="mobile-nav-list">
-                <li><a href="index.html">Início</a></li>
+                <li><a href="/" data-link>Início</a></li>
                 <li class="has-dropdown">
-                    <a href="projetos.html">Projetos</a>
+                    <a href="/projetos" data-link>Projetos</a>
                     <ul class="submenu">
-                        <li><a href="projetos.html">Oficinas</a></li>
-                        <li><a href="projetos.html">Hortas Urbanas</a></li>
+                        <li><a href="/projetos#oficinas" data-link>Oficinas</a></li>
+                        <li><a href="/projetos#hortas" data-link>Hortas Urbanas</a></li>
                     </ul>
                 </li>
-                <li><a href="cadastro.html">Participe</a></li>
+                <li><a href="/cadastro" data-link>Participe</a></li>
             </ul>
         </nav>
         
         <button class="hamburger-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-nav-list">&#9776;</button>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Reconectando pessoas ao poder do alimento.</h1>
-            <p>Somos uma organização de gastronomia social que combate o desperdício e gera transformação.</p>
-            <a href="projetos.html" class="btn btn-primary">Conheça Nossas Frentes</a>
-        </section>
-
-        <div class="container">
-            <section class="sobre-nos">
-                <h2>Quem Somos</h2>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <article>
-                            <h3>Nossa Missão</h3>
-                            <p>Combater a fome e o desperdício de alimentos através da educação e da gastronomia social, transformando ingredientes que seriam descartados em refeições nutritivas.</p>
-                        </article>
-                    </div>
-                    <div class="col-lg-6">
-                        <article>
-                            <h3>Nossa Visão</h3>
-                            <p>Um futuro onde todos tenham acesso à alimentação de qualidade e onde a sociedade reconheça o valor integral de cada alimento, da raiz à folha.</p>
-                            
-                            <img src="https://via.placeholder.com/400x250.png?text=Oficina+de+Culinária" alt="Pessoas cozinhando juntas em uma oficina de culinária.">
-                        </article>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
+    <main id="app-root"></main>
 
     <footer>
         <div class="container">
@@ -90,6 +64,21 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    </body>
+    <div class="modal-overlay" id="project-modal-overlay">
+        <div class="modal" id="project-modal">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <div class="modal-content" id="modal-content-body">
+                <img src="https://via.placeholder.com/400x250.png?text=Projeto" alt="Imagem do projeto" id="modal-img">
+                <h2 id="modal-title">Título do Projeto</h2>
+                <div class="card-tags">
+                    <span class="badge" id="modal-badge"></span>
+                </div>
+                <p id="modal-description">Descrição longa do projeto...</p>
+                <a href="cadastro.html" class="btn btn-primary">Quero Participar</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js" type="module" defer></script>
+</body>
 </html>

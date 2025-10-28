@@ -520,4 +520,107 @@ footer address { font-style: normal; }
     .container {
         max-width: 1320px;
     }
+   .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    
+    /* Escondido por padrão */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Quando o modal está ativo */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: var(--color-background-light);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 600px;
+    padding: var(--space-l);
+    position: relative;
+    
+    /* Animação de "subir" */
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+.modal-overlay.active .modal {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: var(--space-s);
+    right: var(--space-s);
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-secondary);
+    cursor: pointer;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: var(--space-s);
+}
+.modal-content h2 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-s);
+}
+.modal-content p {
+    margin-top: var(--space-s);
+    margin-bottom: var(--space-l);
+}
+
+
+/* =============================================
+   9. VALIDAÇÃO DE FORMULÁRIO (Atividade 3)
+   ============================================= */
+.form-group {
+    /* Posição relativa para a mensagem de erro */
+    position: relative;
+    /* Aumenta o espaço para a msg de erro */
+    padding-bottom: var(--space-m); 
+    margin-bottom: var(--space-s);
+}
+
+/* Estilo do input inválido */
+.form-group input.invalid {
+    border-color: var(--color-danger);
+    background-color: #f8d7da;
+}
+.form-group input.invalid:focus {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.4);
+}
+
+/* Mensagem de erro */
+.form-error-message {
+    display: block;
+    color: var(--color-danger);
+    font-size: var(--font-size-small);
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    left: var(--space-s);
+}
+.form-group-radio.invalid {
+    color: var(--color-danger);
+    font-weight: bold;
+}
 }
