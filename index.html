@@ -5,54 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instituto Raiz - Início</title>
     <meta name="description" content="Página inicial do Instituto Raiz, ONG de gastronomia social.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header>
-        <a href="index.html">
+        <a href="index.html" class="logo">
             <img src="https://via.placeholder.com/150x50.png?text=Instituto+Raiz" alt="Logo do Instituto Raiz">
         </a>
         
-        <nav>
+        <nav class="main-nav">
             <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="index.html" class="active">Início</a></li>
+                <li class="has-dropdown">
+                    <a href="projetos.html">Projetos</a>
+                    <ul class="submenu">
+                        <li><a href="projetos.html">Oficinas</a></li>
+                        <li><a href="projetos.html">Hortas Urbanas</a></li>
+                    </ul>
+                </li>
                 <li><a href="cadastro.html">Participe</a></li>
             </ul>
         </nav>
+        
+        <nav class="mobile-nav">
+             <ul id="mobile-nav-list">
+                <li><a href="index.html">Início</a></li>
+                <li class="has-dropdown">
+                    <a href="projetos.html">Projetos</a>
+                    <ul class="submenu">
+                        <li><a href="projetos.html">Oficinas</a></li>
+                        <li><a href="projetos.html">Hortas Urbanas</a></li>
+                    </ul>
+                </li>
+                <li><a href="cadastro.html">Participe</a></li>
+            </ul>
+        </nav>
+        
+        <button class="hamburger-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-nav-list">&#9776;</button>
     </header>
 
     <main>
         <section class="hero">
             <h1>Reconectando pessoas ao poder do alimento.</h1>
             <p>Somos uma organização de gastronomia social que combate o desperdício e gera transformação.</p>
-            <a href="projetos.html">Conheça Nossas Frentes</a>
+            <a href="projetos.html" class="btn btn-primary">Conheça Nossas Frentes</a>
         </section>
 
-        <section class="sobre-nos">
-            <h2>Quem Somos</h2>
-            <div class="colunas">
-                <article>
-                    <h3>Nossa Missão</h3>
-                    <p>Combater a fome e o desperdício de alimentos através da educação e da gastronomia social, transformando ingredientes que seriam descartados em refeições nutritivas.</p>
-                </article>
-                <article>
-                    <h3>Nossa Visão</h3>
-                    <p>Um futuro onde todos tenham acesso à alimentação de qualidade e onde a sociedade reconheça o valor integral de cada alimento, da raiz à folha.</p>
-                    
-                    <img src="https://via.placeholder.com/400x250.png?text=Oficina+de+Culinária" alt="Pessoas cozinhando juntas em uma oficina de culinária.">
-                </article>
-            </div>
-        </section>
+        <div class="container">
+            <section class="sobre-nos">
+                <h2>Quem Somos</h2>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <article>
+                            <h3>Nossa Missão</h3>
+                            <p>Combater a fome e o desperdício de alimentos através da educação e da gastronomia social, transformando ingredientes que seriam descartados em refeições nutritivas.</p>
+                        </article>
+                    </div>
+                    <div class="col-lg-6">
+                        <article>
+                            <h3>Nossa Visão</h3>
+                            <p>Um futuro onde todos tenham acesso à alimentação de qualidade e onde a sociedade reconheça o valor integral de cada alimento, da raiz à folha.</p>
+                            
+                            <img src="https://via.placeholder.com/400x250.png?text=Oficina+de+Culinária" alt="Pessoas cozinhando juntas em uma oficina de culinária.">
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2025 Instituto Raiz. Todos os direitos reservados.</p>
-        <address>
-            <p>Email: <a href="mailto:contato@raiz.org">contato@raiz.org</a></p>
-            <p>CNPJ: 00.000.000/0001-00</p>
-        </address>
+        <div class="container">
+            <p>&copy; 2025 Instituto Raiz. Todos os direitos reservados.</p>
+            <address>
+                <p>Email: <a href="mailto:contato@raiz.org">contato@raiz.org</a></p>
+                <p>CNPJ: 00.000.000/0001-00</p>
+            </address>
+        </div>
     </footer>
 
-</body>
+    <script src="js/main.js"></script>
+    </body>
 </html>
