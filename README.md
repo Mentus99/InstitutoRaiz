@@ -1,5 +1,7 @@
 # Projeto Instituto Raiz (Plataforma ONG).
 
+**Site ao Vivo:** [**https://institutoraiz.netlify.app**](https://institutoraiz.netlify.app)
+
 Este projeto é uma plataforma web para o "Instituto Raiz", uma ONG fictícia de gastronomia social, desenvolvido como parte de um trabalho acadêmico de Front-End em 4 experiências práticas.
 
 O site é uma **Single Page Application (SPA)** dinâmica, responsiva, **acessível (WCAG 2.1 AA)** e otimizada, construída inteiramente com HTML, CSS e JavaScript puros (Vanilla JS).
@@ -25,4 +27,24 @@ O site é uma **Single Page Application (SPA)** dinâmica, responsiva, **acessí
 
 * **HTML5:** Estrutura semântica (`<header>`, `<main>`, `<article>`, `<nav>`, `<fieldset>`, etc.).
 * **CSS3:** Estilização avançada com Flexbox, Grid Layout (para estrutura principal), Variáveis CSS (para temas e design system), Media Queries (para responsividade), pseudo-elementos (`::after` para indicador de scroll).
-* **JavaScript (ES6+):** Manipulação do DOM, modularização (ESM `import`/`export`), roteamento (SPA com History API), lógica de UI (Modal, Validação, Temas), `localStorage`
+* **JavaScript (ES6+):** Manipulação do DOM, modularização (ESM `import`/`export`), roteamento (SPA com History API), lógica de UI (Modal, Validação, Temas), `localStorage`.
+
+## Processo de Desenvolvimento (Git/GitHub)
+
+O projeto foi desenvolvido seguindo as 4 experiências práticas da disciplina, de forma incremental:
+1.  **EP I:** Estrutura HTML semântica e formulários base com máscaras JS.
+2.  **EP II:** Estilização com CSS (design system, responsividade, componentes visuais) e lógica inicial do menu mobile.
+3.  **EP III:** Refatoração para Single Page Application (SPA), interatividade com JavaScript (modal) e validação de formulário.
+4.  **EP IV:** Refinamento com acessibilidade (WCAG), otimização e documentação final.
+
+O desenvolvimento foi realizado principalmente na branch `main`, utilizando **commits semânticos** para marcar a conclusão de cada etapa funcional, conforme solicitado na Atividade IV.
+
+## Sobre Este Projeto
+
+Este é um projeto acadêmico desenvolvido para a disciplina de Front-End, **sem fins lucrativos**. Todo o código e design foram criados por **Gabriel Mendes**.
+
+Sinta-se à vontade para explorar o código, usá-lo como referência ou entrar em contato caso tenha alguma dúvida ou sugestão sobre o projeto!
+
+## Licença
+
+Este projeto está licenciado sob a **Licença MIT**.
