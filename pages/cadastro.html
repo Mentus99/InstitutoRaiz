@@ -4,6 +4,7 @@
     Seja um voluntário, chef, nutricionista ou parceiro. Sua ajuda é o
     ingrediente principal da nossa receita de transformação.
   </p>
+
   <form
     action="/enviar-cadastro"
     method="post"
@@ -14,11 +15,13 @@
     <div class="col-lg-6">
       <fieldset>
         <legend>Seus Dados</legend>
+
         <div class="form-group">
           <label for="nome">Nome Completo:</label>
           <input type="text" id="nome" name="nome_completo" required />
           <span class="form-error-message" aria-live="polite"></span>
         </div>
+
         <div class="form-group">
           <label for="email">E-mail:</label>
           <input
@@ -30,11 +33,13 @@
           />
           <span class="form-error-message" aria-live="polite"></span>
         </div>
+
         <div class="form-group">
           <label for="data_nasc">Data de Nascimento:</label>
           <input type="date" id="data_nasc" name="data_nascimento" required />
           <span class="form-error-message" aria-live="polite"></span>
         </div>
+
         <div class="form-group">
           <label for="cpf">CPF:</label>
           <input
@@ -42,11 +47,12 @@
             id="cpf"
             name="cpf"
             required
-            pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
             placeholder="000.000.000-00"
+            maxlength="14"
           />
           <span class="form-error-message" aria-live="polite"></span>
         </div>
+
         <div class="form-group">
           <label for="telefone">Telefone / Celular:</label>
           <input
@@ -55,14 +61,17 @@
             name="telefone"
             required
             placeholder="(00) 90000-0000"
+            maxlength="15"
           />
           <span class="form-error-message" aria-live="polite"></span>
         </div>
       </fieldset>
     </div>
+
     <div class="col-lg-6">
       <fieldset>
         <legend>Endereço</legend>
+
         <div class="form-group">
           <label for="cep">CEP:</label>
           <input
@@ -70,21 +79,24 @@
             id="cep"
             name="cep"
             required
-            pattern="\d{5}-\d{3}"
             placeholder="00000-000"
+            maxlength="9"
           />
           <span class="form-error-message" aria-live="polite"></span>
         </div>
+
         <div class="form-group">
           <label for="endereco">Endereço (Rua, N°):</label>
           <input type="text" id="endereco" name="endereco" required />
           <span class="form-error-message" aria-live="polite"></span>
         </div>
+
         <div class="form-group">
           <label for="cidade">Cidade:</label>
           <input type="text" id="cidade" name="cidade" required />
           <span class="form-error-message" aria-live="polite"></span>
         </div>
+
         <div class="form-group">
           <label for="estado">Estado:</label>
           <input type="text" id="estado" name="estado" required />
@@ -92,10 +104,12 @@
         </div>
       </fieldset>
     </div>
+
     <div class="col-md-12">
       <fieldset>
         <legend>Como você quer ajudar?</legend>
         <p>Selecione sua principal área de interesse:</p>
+
         <div class="form-group-radio">
           <input
             type="radio"
@@ -109,6 +123,7 @@
             >Voluntário (Oficinas e Cozinha)</label
           >
         </div>
+
         <div class="form-group-radio">
           <input
             type="radio"
@@ -119,6 +134,7 @@
           />
           <label for="interesse_horta">Voluntário (Hortas Urbanas)</label>
         </div>
+
         <div class="form-group-radio">
           <input
             type="radio"
@@ -133,6 +149,7 @@
         </div>
       </fieldset>
     </div>
+
     <div class="col-md-12">
       <button type="submit" class="btn btn-primary">Enviar Cadastro</button>
     </div>
