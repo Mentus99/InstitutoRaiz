@@ -44,7 +44,8 @@ O desenvolvimento foi realizado principalmente na branch `main`, utilizando **co
 Este é um projeto acadêmico desenvolvido para a disciplina de Front-End, **sem fins lucrativos**. Todo o código e design foram criados por mim, **Gabriel Mendes**.
 
 Sinta-se à vontade para explorar o código, usá-lo como referência ou entrar em contato caso tenha alguma dúvida ou sugestão sobre o projeto.
-* [![LinkedIn](https://img.shields.io/badge/LinkedIn-Gabriel%20Mendes-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/gabriel-mendes2499/)
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Gabriel%20Mendes-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/gabriel-mendes2499/)
 
 ## Licença
 
