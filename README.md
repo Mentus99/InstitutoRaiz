@@ -1,10 +1,12 @@
-# Projeto Instituto Raiz (Plataforma ONG)
+# Projeto Instituto Raiz (Plataforma ONG).
+
+**Site ao Vivo:** [**https://mentus99.github.io/InstitutoRaiz/**](https://mentus99.github.io/InstitutoRaiz/)
 
 Este projeto é uma plataforma web para o "Instituto Raiz", uma ONG fictícia de gastronomia social, desenvolvido como parte de um trabalho acadêmico de Front-End em 4 experiências práticas.
 
 O site é uma **Single Page Application (SPA)** dinâmica, responsiva, **acessível (WCAG 2.1 AA)** e otimizada, construída inteiramente com HTML, CSS e JavaScript puros (Vanilla JS).
 
-## Features 
+## Features (Funcionalidades)
 
 * **Identidade Visual "Instituto Raiz":** Foco em gastronomia, sustentabilidade e comunidade.
 * **UI Moderna:** Design sólido e limpo, com fontes (Poppins, Lato), sombras elegantes e animações suaves nos cards.
@@ -25,4 +27,4 @@ O site é uma **Single Page Application (SPA)** dinâmica, responsiva, **acessí
 
 * **HTML5:** Estrutura semântica (`<header>`, `<main>`, `<article>`, `<nav>`, `<fieldset>`, etc.).
 * **CSS3:** Estilização avançada com Flexbox, Grid Layout (para estrutura principal), Variáveis CSS (para temas e design system), Media Queries (para responsividade), pseudo-elementos (`::after` para indicador de scroll).
-* **JavaScript (ES6+):** Manipulação do DOM, modularização (ESM `import`/`export`), roteamento (SPA com History API), lógica de UI (Modal, Validação, Temas), `localStorage`.
+* **JavaScript (ES6+):** Manipulação do DOM, modularização (ESM `import`/`export`), roteamento (SPA com History API), lógica de UI (Modal, Validação, Temas), `localStorage`
