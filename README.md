@@ -49,4 +49,4 @@ Sinta-se à vontade para explorar o código, usá-lo como referência ou entrar 
 
 ## Licença
 
-Este projeto está licenciado sob a [**Licence MIT**].
+Este projeto está licenciado sob a [**Licence MIT**](https://github.com/Mentus99/InstitutoRaiz/blob/main/LICENSE).
