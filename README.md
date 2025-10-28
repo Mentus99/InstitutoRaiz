@@ -47,4 +47,4 @@ Sinta-se à vontade para explorar o código, usá-lo como referência ou entrar 
 
 ## Licença
 
-Este projeto está licenciado sob a **Licença MIT**.
+Este projeto está licenciado sob a **Licence MIT**.
