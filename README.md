@@ -1,7 +1,5 @@
 # Projeto Instituto Raiz (Plataforma ONG).
 
-**Site ao Vivo:** [**https://mentus99.github.io/InstitutoRaiz/**](https://mentus99.github.io/InstitutoRaiz/)
-
 Este projeto é uma plataforma web para o "Instituto Raiz", uma ONG fictícia de gastronomia social, desenvolvido como parte de um trabalho acadêmico de Front-End em 4 experiências práticas.
 
 O site é uma **Single Page Application (SPA)** dinâmica, responsiva, **acessível (WCAG 2.1 AA)** e otimizada, construída inteiramente com HTML, CSS e JavaScript puros (Vanilla JS).
