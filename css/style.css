@@ -38,7 +38,7 @@
 }
 
 /* =============================================
-    TEMA ESCURO E ALTO CONTRASTE
+   1B. TEMA ESCURO E ALTO CONTRASTE (Atividade 4)
    ============================================= */
 
 /* Tema Escuro */
@@ -52,7 +52,8 @@ body[data-theme="dark"] {
   --color-background-light: #2a2a2a; /* Fundo escuro dos cards/header */
   --color-background-grey: #1a1a1a; /* Fundo escuro do body */
 
-  --box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+  /* SOMBRAS E GLOW PARA MODO ESCURO */
+  --box-shadow: 0 0 10px rgba(255, 255, 255, 0.08); /* Glow sutil (base) */
   --box-shadow-hover: 0 0 20px rgba(255, 255, 255, 0.2),
     /* Glow mais forte no hover */ 0 0 30px rgba(151, 188, 98, 0.1); /* + um pouco de verde */
 }
@@ -70,6 +71,19 @@ body[data-theme="dark"] .form-group input {
 body[data-theme="dark"] legend {
   background: var(--color-background-grey);
   color: var(--color-primary);
+}
+body[data-theme="dark"] .card {
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Borda neon base */
+}
+body[data-theme="dark"] .card:hover {
+  border-color: rgba(255, 255, 255, 0.3); /* Borda neon hover */
+}
+body[data-theme="dark"] .modal-content::after {
+  background: linear-gradient(
+    to top,
+    var(--color-background-grey) 30%,
+    rgba(26, 26, 26, 0) 100%
+  ); /* Indicador scroll escuro */
 }
 
 /* Tema Alto Contraste */
@@ -123,7 +137,7 @@ body[data-theme="high-contrast"] .modal-content::after {
     var(--color-background-grey) 30%,
     rgba(224, 224, 224, 0) 100%
   );
-} /* Indicador de scroll cinza */
+}
 
 /* =============================================
    2. ESTILOS BASE (Reset e Padrões)
@@ -209,16 +223,17 @@ footer {
   margin: 0 calc(var(--space-s) * -1);
 }
 [class^="col-"] {
-  padding: 0 var(--space-s);
-  flex-basis: 100%;
+  padding: 0 var(--space-s); /* Padding lateral (gutter) */
+  flex-basis: 100%; /* Largura base (mobile) */
+  margin-bottom: var(--space-l); /* Espaço ABAIXO de cada coluna/card */
 }
+
+/* Breakpoints (Mantenha os seus) */
 @media (min-width: 768px) {
   .col-md-6 {
     flex-basis: 50%;
   }
-  .col-md-12 {
-    flex-basis: 100%;
-  }
+  /* ... outras colunas md ... */
 }
 @media (min-width: 992px) {
   .col-lg-4 {
@@ -227,8 +242,8 @@ footer {
   .col-lg-6 {
     flex-basis: 50%;
   }
+  /* ... outras colunas lg ... */
 }
-
 .container > h1 + p {
   margin-bottom: var(--space-l);
 }
@@ -249,9 +264,30 @@ header {
   border-bottom: 1px solid #e0e0e0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  color: var(--color-primary);
+  font-family: var(--font-family-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
 header .logo img {
-  height: 50px;
+  height: 40px;
   width: auto;
+  border-radius: 0;
+  display: block;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+header .logo span {
+  line-height: 1;
+}
+header .logo:hover {
+  color: var(--color-primary-dark);
 }
 .main-nav {
   display: none;
@@ -313,7 +349,7 @@ li.has-dropdown:focus-within > .submenu {
   cursor: pointer;
   color: var(--color-primary);
   z-index: 1002;
-  margin-left: auto; /* Empurra para a direita */
+  margin-left: auto;
 }
 .mobile-nav {
   display: block;
@@ -406,21 +442,14 @@ li.has-dropdown:focus-within > .submenu {
   background: var(--color-background-light);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #e0e0e0;
   overflow: hidden;
-  margin-bottom: var(--space-l);
+  /* margin-bottom FOI REMOVIDO daqui (agora está na coluna) */
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100%; /* USA height: 100% em vez de flex-grow */
   transition: var(--transition-smooth);
   cursor: pointer;
-}
-.card:hover {
-  transform: translateY(-5px);
-  /* Usa a variável de box-shadow-hover definida no tema */
-  box-shadow: var(--box-shadow-hover);
-  /* No hover, a borda pode ser um pouco mais visível */
-  border-color: rgba(255, 255, 255, 0.3);
 }
 .card:hover {
   transform: translateY(-5px);
@@ -428,22 +457,24 @@ li.has-dropdown:focus-within > .submenu {
 }
 .card-img img {
   width: 100%;
-  height: 220px;
+  height: 220px; /* Altura fixa */
   object-fit: cover;
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 .card-body {
   padding: var(--space-m);
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  flex-grow: 1; /* Body ainda precisa crescer para empurrar o botão */
 }
 .card-body h3 {
-  margin-top: 0;
-  color: var(--color-primary);
+  /* ... */
+}
+.card-body p {
+  margin-bottom: var(--space-m); /* Espaço antes do botão */
 }
 .card-body .btn {
-  margin-top: auto;
+  margin-top: auto; /* Empurra para o fundo */
+  align-self: flex-start; /* Não estica */
 }
 .card-tags {
   margin-bottom: var(--space-s);
@@ -675,14 +706,6 @@ footer address {
 .modal-content:has(> :first-child:not(:last-child))::after {
   opacity: 1;
 }
-/* Ajuste tema escuro (se implementar Atividade 4) */
-body[data-theme="dark"] .modal-content::after {
-  background: linear-gradient(
-    to top,
-    var(--color-background-grey) 30%,
-    rgba(26, 26, 26, 0) 100%
-  );
-}
 .modal-media {
   width: 100%;
   position: relative;
@@ -840,5 +863,31 @@ body[data-theme="high-contrast"] .icon-contrast {
   }
   .mobile-nav {
     width: 100%;
+  }
+}
+
+/* =============================================
+   11. AJUSTES ESPECÍFICOS (Página Home - Quem Somos)
+   ============================================= */
+.sobre-nos .col-lg-6 article {
+  /* padding-right: var(--space-m); */
+}
+.sobre-nos p {
+  line-height: 1.7;
+  margin-bottom: var(--space-m);
+}
+.sobre-nos h3 {
+  margin-bottom: var(--space-m);
+}
+.sobre-nos .col-lg-6:last-child img {
+  max-width: 85%;
+  height: auto;
+  margin-top: var(--space-m);
+  display: block; /* margin-left: auto; margin-right: auto; */
+}
+@media (max-width: 991px) {
+  .sobre-nos .col-lg-6:last-child img {
+    max-width: 100%;
+    margin-top: var(--space-l);
   }
 }
