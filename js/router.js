@@ -5,7 +5,7 @@ const projectData = {
   oficinas: {
     id: "oficinas",
     title: "Oficinas de Culinária Consciente",
-    badges: ["Educação", "Comunidade"],
+    badge: "Educação",
     mediaEmbed:
       '<iframe width="560" height="315" src="https://www.youtube.com/embed/Ryk4MfwMA0k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
     description:
@@ -23,7 +23,7 @@ const projectData = {
   hortas: {
     id: "hortas",
     title: "Hortas Urbanas Comunitárias",
-    badges: ["Sustentabilidade"],
+    badge: "Sustentabilidade",
     mediaEmbed:
       '<iframe width="444" height="789" src="https://www.youtube.com/embed/I8H7vA8pjy8" title="Curso Horta Comunitária" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
     description:
@@ -39,8 +39,8 @@ const projectData = {
   },
   formacao: {
     id: "formacao",
-    title: "Formação de Cozinheiros - Alimentando Sonhos",
-    badges: ["Capacitação"],
+    title: "Formação de Cozinheiros - Alimentando Sonhos", // Título atualizado
+    badge: "Capacitação",
     mediaEmbed:
       '<iframe width="444" height="789" src="https://www.youtube.com/embed/Gkn3AiaZ08g" title="Curso gratuito de Culinária #shorts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
     description:
@@ -49,7 +49,7 @@ const projectData = {
       "<strong>Iniciativa:</strong> Casa da Esperança.",
       "<strong>Curso:</strong> Alimentando Sonhos (Gratuito).",
       "<strong>Foco:</strong> Capacitação profissional e transformação social.",
-      "<strong>Status Atual:</strong> Turmas completas. Fique atento para a próxima seleção!",
+      "<strong>Status Atual:</strong> Turmas completas. Fique atento para a próxima seleção!", // Mantido
     ],
     buttonText: "Turmas Fechadas", // Botão desabilitado
     buttonLink: "#",
