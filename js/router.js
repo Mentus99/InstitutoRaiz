@@ -1,16 +1,13 @@
 import { initForm } from "./formHandler.js";
 import { initModal, openModal } from "./modal.js";
 
-// --- CONTEÚDO DOS PROJETOS (CORRIGIDO) ---
 const projectData = {
   oficinas: {
     id: "oficinas",
     title: "Oficinas de Culinária Consciente",
-    badge: "Educação",
-    // Vídeo placeholder anterior (Fort Minor), ou substitua por imagem AI
+    badges: ["Educação", "Comunidade"],
     mediaEmbed:
       '<iframe width="560" height="315" src="https://www.youtube.com/embed/Ryk4MfwMA0k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-    // Descrição focada nas oficinas quinzenais
     description:
       "A cada 15 dias, nossas oficinas transformam a relação das pessoas com a comida! Dividimos os participantes em dois grupos focados (controle de diabetes e perda de peso) e ensinamos receitas saudáveis, acessíveis e deliciosas. Exploramos os benefícios e malefícios dos ingredientes no corpo e, o mais importante, mostramos como aproveitar ao máximo o que você já tem em casa, como aveia, cascas e talos. Cozinhar de forma consciente nunca foi tão fácil!",
     highlights: [
@@ -26,11 +23,9 @@ const projectData = {
   hortas: {
     id: "hortas",
     title: "Hortas Urbanas Comunitárias",
-    badge: "Sustentabilidade",
-    // Vídeo da Horta Comunitária
+    badges: ["Sustentabilidade"],
     mediaEmbed:
       '<iframe width="444" height="789" src="https://www.youtube.com/embed/I8H7vA8pjy8" title="Curso Horta Comunitária" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-    // Descrição com base na notícia
     description:
       "Nossas hortas comunitárias são um verdadeiro sucesso entre os moradores! Recentemente, realizamos uma palestra sobre cultivo de alimentos orgânicos em hortas urbanas, reunindo cerca de 60 participantes. No evento, todos aprenderam sobre manejo do solo, formação de mudas, plantio e muito mais, fortalecendo a conexão da comunidade com o alimento saudável.",
     highlights: [
@@ -44,19 +39,17 @@ const projectData = {
   },
   formacao: {
     id: "formacao",
-    title: "Formação de Cozinheiros - Alimentando Sonhos", // Título atualizado
-    badge: "Capacitação",
-    // Vídeo do Curso Gratuito (movido para cá)
+    title: "Formação de Cozinheiros - Alimentando Sonhos",
+    badges: ["Capacitação"],
     mediaEmbed:
       '<iframe width="444" height="789" src="https://www.youtube.com/embed/Gkn3AiaZ08g" title="Curso gratuito de Culinária #shorts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-    // Descrição do Curso Gratuito (movida para cá)
     description:
       'A culinária transforma vidas! No Instituto Raiz, através da nossa iniciativa "Casa da Esperança", oferecemos cursos gratuitos como o "Alimentando Sonhos". Ouvir o depoimento inspirador de cada participante mostra que estamos no caminho certo, capacitando profissionais qualificados com foco em gastronomia social e aproveitamento integral.',
     highlights: [
       "<strong>Iniciativa:</strong> Casa da Esperança.",
       "<strong>Curso:</strong> Alimentando Sonhos (Gratuito).",
       "<strong>Foco:</strong> Capacitação profissional e transformação social.",
-      "<strong>Status Atual:</strong> Turmas completas. Fique atento para a próxima seleção!", // Mantido
+      "<strong>Status Atual:</strong> Turmas completas. Fique atento para a próxima seleção!",
     ],
     buttonText: "Turmas Fechadas", // Botão desabilitado
     buttonLink: "#",
