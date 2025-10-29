@@ -58,34 +58,64 @@ body[data-theme="dark"] {
     /* Glow mais forte no hover */ 0 0 30px rgba(151, 188, 98, 0.1); /* + um pouco de verde */
 }
 /* Ajustes específicos para tema escuro */
-body[data-theme="dark"] .alert-success {
-  color: #d4edda;
-  background-color: rgba(40, 167, 69, 0.2);
-  border-color: rgba(40, 167, 69, 0.3);
-}
-body[data-theme="dark"] .form-group input {
-  background: var(--color-background-grey);
-  border-color: #444;
-  color: var(--color-text-dark);
-}
-body[data-theme="dark"] legend {
-  background: var(--color-background-grey);
-  color: var(--color-primary);
-}
-body[data-theme="dark"] .card {
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Borda neon base */
-}
-body[data-theme="dark"] .card:hover {
-  border-color: rgba(255, 255, 255, 0.3); /* Borda neon hover */
-}
-body[data-theme="dark"] .modal-content::after {
-  background: linear-gradient(
-    to top,
-    var(--color-background-grey) 30%,
-    rgba(26, 26, 26, 0) 100%
-  ); /* Indicador scroll escuro */
-}
+/* Tema Escuro */
+body[data-theme="dark"] {
+  --color-primary: #97bc62;
+  --color-primary-dark: #b0d182;
+  --color-accent: #2c5f2d;
+  --color-secondary: #adb5bd;
+  --color-text-dark: #f8f9fa;
+  --color-text-light: #212529;
+  --color-background-light: #2a2a2a;
+  --color-background-grey: #1a1a1a;
 
+  /* SOMBRAS E GLOW PARA MODO ESCURO */
+  --box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+  --box-shadow-hover: 0 0 20px rgba(255, 255, 255, 0.2),
+    0 0 30px rgba(151, 188, 98, 0.1);
+
+  .hero {
+    color: var(--color-text-dark);
+  }
+  .hero h1 {
+    color: var(--color-text-dark);
+  }
+  .hero .btn {
+    background-color: var(--color-accent);
+    color: var(--color-text-dark);
+  }
+  .hero .btn:hover {
+    background-color: #3a7d3b;
+    color: var(--color-text-light);
+  }
+  .alert-success {
+    color: #d4edda;
+    background-color: rgba(40, 167, 69, 0.2);
+    border-color: rgba(40, 167, 69, 0.3);
+  }
+  .form-group input {
+    background: var(--color-background-grey);
+    border-color: #444;
+    color: var(--color-text-dark);
+  }
+  legend {
+    background: var(--color-background-grey);
+    color: var(--color-primary);
+  }
+  .card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .card:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  .modal-content::after {
+    background: linear-gradient(
+      to top,
+      var(--color-background-grey) 30%,
+      rgba(26, 26, 26, 0) 100%
+    );
+  }
+}
 /* Tema Alto Contraste */
 body[data-theme="high-contrast"] {
   --color-primary: #0000ff; /* Azul Puro */
@@ -217,32 +247,23 @@ footer {
   margin: 0 auto;
   padding: var(--space-l) 0;
 }
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 calc(var(--space-s) * -1);
+.project-grid {
+  display: grid;
+  /* 1 coluna no mobile */
+  grid-template-columns: 1fr;
+  gap: var(--space-l);
 }
-[class^="col-"] {
-  padding: 0 var(--space-s); /* Padding lateral (gutter) */
-  flex-basis: 100%; /* Largura base (mobile) */
-  margin-bottom: var(--space-l); /* Espaço ABAIXO de cada coluna/card */
-}
-
-/* Breakpoints (Mantenha os seus) */
+/* 2 colunas para tablet */
 @media (min-width: 768px) {
-  .col-md-6 {
-    flex-basis: 50%;
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  /* ... outras colunas md ... */
 }
+/* 3 colunas para desktop */
 @media (min-width: 992px) {
-  .col-lg-4 {
-    flex-basis: 33.33%;
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  .col-lg-6 {
-    flex-basis: 50%;
-  }
-  /* ... outras colunas lg ... */
 }
 .container > h1 + p {
   margin-bottom: var(--space-l);
@@ -444,10 +465,8 @@ li.has-dropdown:focus-within > .submenu {
   box-shadow: var(--box-shadow);
   border: 1px solid #e0e0e0;
   overflow: hidden;
-  /* margin-bottom FOI REMOVIDO daqui (agora está na coluna) */
   display: flex;
   flex-direction: column;
-  height: 100%; /* USA height: 100% em vez de flex-grow */
   transition: var(--transition-smooth);
   cursor: pointer;
 }
@@ -465,9 +484,6 @@ li.has-dropdown:focus-within > .submenu {
   display: flex;
   flex-direction: column;
   flex-grow: 1; /* Body ainda precisa crescer para empurrar o botão */
-}
-.card-body h3 {
-  /* ... */
 }
 .card-body p {
   margin-bottom: var(--space-m); /* Espaço antes do botão */
@@ -565,7 +581,11 @@ legend {
    6. LAYOUTS ESPECÍFICOS (Hero, Rodapé)
    ============================================= */
 .hero {
-  background-color: var(--color-primary);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/home1.jpg");
+  background-size: cover;
+  background-position: center;
+
   color: var(--color-text-light);
   padding: var(--space-xxl) var(--space-l);
   text-align: center;
@@ -843,6 +863,9 @@ body[data-theme="high-contrast"] .icon-contrast {
   .row {
     flex-direction: column;
   }
+  [class^="col-"] {
+    margin-bottom: var(--space-l);
+  }
 }
 @media (max-width: 576px) {
   h1 {
@@ -867,27 +890,38 @@ body[data-theme="high-contrast"] .icon-contrast {
 }
 
 /* =============================================
-   11. AJUSTES ESPECÍFICOS (Página Home - Quem Somos)
+   11. AJUSTES ESPECÍFICOS (Página Home)
    ============================================= */
 .sobre-nos .col-lg-6 article {
-  /* padding-right: var(--space-m); */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .sobre-nos p {
   line-height: 1.7;
   margin-bottom: var(--space-m);
+  flex-grow: 1;
 }
 .sobre-nos h3 {
   margin-bottom: var(--space-m);
+  flex-shrink: 0;
 }
-.sobre-nos .col-lg-6:last-child img {
+.sobre-nos .col-lg-6 img {
   max-width: 85%;
   height: auto;
   margin-top: var(--space-m);
-  display: block; /* margin-left: auto; margin-right: auto; */
+  display: block;
+  flex-shrink: 0; /* <-- ADICIONADO (Garante que a imagem não encolha) */
+  /* Descomente as 2 linhas abaixo para centralizar as imagens */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
 }
 @media (max-width: 991px) {
-  .sobre-nos .col-lg-6:last-child img {
+  .sobre-nos .col-lg-6 img {
     max-width: 100%;
     margin-top: var(--space-l);
+  }
+  .sobre-nos p {
+    flex-grow: 0;
   }
 }
