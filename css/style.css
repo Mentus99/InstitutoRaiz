@@ -247,6 +247,33 @@ footer {
   margin: 0 auto;
   padding: var(--space-l) 0;
 }
+.container > h1 + p {
+  margin-bottom: var(--space-l);
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(var(--space-s) * -1);
+}
+[class^="col-"] {
+  padding: 0 var(--space-s);
+  flex-basis: 100%;
+  margin-bottom: var(--space-l);
+}
+
+@media (min-width: 768px) {
+  .col-md-6 {
+    flex-basis: 50%;
+  }
+  .col-md-12 {
+    flex-basis: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .col-lg-6 {
+    flex-basis: 50%;
+  }
+}
 .project-grid {
   display: grid;
   /* 1 coluna no mobile */
