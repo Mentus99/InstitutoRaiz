@@ -1,0 +1,12 @@
+{
+  "port": 5500,
+  "host": "127.0.0.1",
+  "root": "/",
+  "open": false,
+  "file": "index.html",
+  "wait": 100,
+  "mount": [["/", "."]],
+  "logLevel": 2,
+  "middleware": [],
+  "spa": true
+}
